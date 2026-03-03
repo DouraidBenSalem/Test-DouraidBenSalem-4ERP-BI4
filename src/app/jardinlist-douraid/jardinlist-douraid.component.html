@@ -1,0 +1,33 @@
+<div>
+  <h2>Liste des Jardins</h2>
+  
+  <button (click)="navigateToInsert()">Ajouter un nouveau jardin</button>
+  
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Adresse</th>
+        <th>Surface (m²)</th>
+        <th>Date d'entretien</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let jardin of jardins">
+        <td>{{ jardin.id }}</td>
+        <td>{{ jardin.adresse }}</td>
+        <td>{{ jardin.surface }}</td>
+        <td>{{ jardin.dateEntretien | date:'dd/MM/yyyy' }}</td>
+        <td>{{ jardin.status ? 'Actif' : 'Inactif' }}</td>
+        <td>
+          <button (click)="navigateToUpdate(jardin.id)">Modifier</button>
+          <button (click)="navigateToDelete(jardin.id)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <p *ngIf="jardins.length === 0">Aucun jardin disponible</p>
+</div>

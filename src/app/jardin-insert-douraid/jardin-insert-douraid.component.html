@@ -1,0 +1,31 @@
+<div>
+  <h2>Ajouter un nouveau jardin</h2>
+  
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label>Adresse (minimum 5 caractères):</label>
+      <input type="text" [(ngModel)]="jardin.adresse" name="adresse" required minlength="5" />
+    </div>
+    
+    <div>
+      <label>Surface (m²) (minimum 50):</label>
+      <input type="number" [(ngModel)]="jardin.surface" name="surface" required min="50" />
+    </div>
+    
+    <div>
+      <label>Date d'entretien:</label>
+      <input type="date" [(ngModel)]="jardin.dateEntretien" name="dateEntretien" required />
+    </div>
+    
+    <div>
+      <label>Status:</label>
+      <input type="checkbox" [(ngModel)]="jardin.status" name="status" />
+      <span>Actif</span>
+    </div>
+    
+    <div>
+      <button type="submit">Ajouter</button>
+      <button type="button" (click)="onCancel()">Annuler</button>
+    </div>
+  </form>
+</div>

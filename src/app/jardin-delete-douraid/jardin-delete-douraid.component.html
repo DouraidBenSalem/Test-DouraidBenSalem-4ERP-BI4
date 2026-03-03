@@ -1,0 +1,35 @@
+<div>
+  <h2>Supprimer le jardin</h2>
+  
+  <div *ngIf="jardin">
+    <h3>Êtes-vous sûr de vouloir supprimer ce jardin ?</h3>
+    
+    <table border="1">
+      <tr>
+        <th>ID:</th>
+        <td>{{ jardin.id }}</td>
+      </tr>
+      <tr>
+        <th>Adresse:</th>
+        <td>{{ jardin.adresse }}</td>
+      </tr>
+      <tr>
+        <th>Surface (m²):</th>
+        <td>{{ jardin.surface }}</td>
+      </tr>
+      <tr>
+        <th>Date d'entretien:</th>
+        <td>{{ jardin.dateEntretien | date:'dd/MM/yyyy' }}</td>
+      </tr>
+      <tr>
+        <th>Status:</th>
+        <td>{{ jardin.status ? 'Actif' : 'Inactif' }}</td>
+      </tr>
+    </table>
+    
+    <div>
+      <button (click)="onConfirmDelete()">Confirmer la suppression</button>
+      <button (click)="onCancel()">Annuler</button>
+    </div>
+  </div>
+</div>
